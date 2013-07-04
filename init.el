@@ -1,7 +1,6 @@
-;; User pack init file
-;;
-;; User this file to initiate the pack configuration.
-;; See README for more information.
+(install-packs '(cl-lib
+                 dash
+                 melpa))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
