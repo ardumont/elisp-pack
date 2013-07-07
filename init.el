@@ -7,7 +7,10 @@
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
-(add-hook 'emacs-lisp-mode-hook 'page-break-lines-mode)
+(require 'page-break-lines)
+
+;; activate the reading of line instead of ^L
+(global-page-break-lines-mode t)
 
 ;; Load bindings config
 (live-load-config-file "bindings.el")
