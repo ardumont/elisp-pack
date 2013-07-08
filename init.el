@@ -3,7 +3,10 @@
                  melpa
                  ;; keep the packages locally (offline work)
                  package-store
-                 page-break-lines))
+                 page-break-lines
+                 ert
+                 ert-expectations
+                 el-mock))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
