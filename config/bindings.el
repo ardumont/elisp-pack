@@ -5,3 +5,5 @@
 ;;(define-key global-map (kbd "C--") 'text-scale-decrease)
 
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
+
+(define-key global-map (kbd "C-x C-\\") 'goto-last-change)

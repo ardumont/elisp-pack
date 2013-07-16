@@ -6,7 +6,8 @@
                  page-break-lines
                  ert
                  ert-expectations
-                 el-mock))
+                 el-mock
+                 goto-last-change))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
