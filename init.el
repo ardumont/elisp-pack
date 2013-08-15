@@ -11,6 +11,7 @@
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
+;; to display a beautiful line instead of the ugly ^L
 (require 'page-break-lines)
 
 ;; indentation rule they use bother me
