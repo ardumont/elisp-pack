@@ -19,6 +19,7 @@
 
 (put 'if 'lisp-indent-function 0)
 (put 'when 'lisp-indent-function 0)
+(put 'unless 'lisp-indent-function 0)
 (put '-> 'lisp-indent-function 0)
 (put '->> 'lisp-indent-function 0)
 (put '-> 'lisp-indent-function 0)
