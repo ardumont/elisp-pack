@@ -13,6 +13,8 @@
 
 ;; to display a beautiful line instead of the ugly ^L
 (require 'page-break-lines)
+;; activate the reading of line instead of ^L
+(global-page-break-lines-mode t)
 
 ;; indentation rule they use bother me
 (require 'dash)
@@ -30,8 +32,7 @@
 (put '-if-let* 'lisp-indent-function 0)
 (put '--if-let 'lisp-indent-function 0)
 
-;; activate the reading of line instead of ^L
-(global-page-break-lines-mode t)
+(add-to-list 'auto-mode-alist '("Cask" . emacs-lisp-mode))
 
 ;; Load bindings config
 (live-load-config-file "bindings.el")
