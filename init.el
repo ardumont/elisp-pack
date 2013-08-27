@@ -35,5 +35,13 @@
 (add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.feature$" . perl-mode))
 
+;; Try and look for the electric highlight
+(defun copy-form ()
+  "To copy a form inside the kill ring."
+  (interactive)
+  (kill-sexp)
+  (undo)
+  (message "Form in kill-ring! "))
+
 ;; Load bindings config
 (live-load-config-file "bindings.el")
