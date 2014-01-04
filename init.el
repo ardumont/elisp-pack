@@ -1,13 +1,13 @@
 (install-packs '(cl-lib
                  dash
-                 melpa
-                 ;; keep the packages locally (offline work)
                  package-store
                  page-break-lines
-                 ert
-                 ert-expectations
-                 el-mock
                  goto-last-change))
+
+(setq *TEMPORARY-PACKAGE-ARCHIVES* package-archives)
+
+(install-packs '(ert ert-expectations el-mock)
+               (add-to-list '*TEMPORARY-PACKAGE-ARCHIVES* '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
