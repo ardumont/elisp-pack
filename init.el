@@ -50,4 +50,13 @@
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
 (define-key global-map (kbd "C-x C-\\") 'goto-last-change)
 
+;; emacs-lisp shortcuts
+(global-set-key (kbd "C-c m s") 'eval-and-replace) ;swap
+(global-set-key (kbd "C-c m b") 'eval-buffer)
+(global-set-key (kbd "C-c m e") 'eval-last-sexp)
+(global-set-key (kbd "C-c m i") 'eval-expression)
+(global-set-key (kbd "C-c m d") 'eval-defun)
+(global-set-key (kbd "C-c m n") 'eval-print-last-sexp)
+(global-set-key (kbd "C-c m r") 'eval-region)
+
 ;;; elisp-pack.el ends here
