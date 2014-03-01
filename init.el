@@ -1,3 +1,9 @@
+;;; elisp-pack.el --- Emacs-lisp
+
+;;; Commentary:
+
+;;; Code:
+
 (install-packs '(cl-lib
                  dash
                  package-store
@@ -43,5 +49,7 @@
   (undo)
   (message "Form in kill-ring! "))
 
-;; Load bindings config
-(live-load-config-file "bindings.el")
+(define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
+(define-key global-map (kbd "C-x C-\\") 'goto-last-change)
+
+;;; elisp-pack.el ends here
