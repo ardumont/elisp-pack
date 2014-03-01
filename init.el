@@ -8,12 +8,10 @@
                  dash
                  package-store
                  page-break-lines
-                 goto-last-change))
-
-(setq *TEMPORARY-PACKAGE-ARCHIVES* package-archives)
-
-(install-packs '(ert ert-expectations el-mock)
-               (add-to-list '*TEMPORARY-PACKAGE-ARCHIVES* '("melpa" . "http://melpa.milkbox.net/packages/") t))
+                 goto-last-change
+                 ert
+                 ert-expectations
+                 el-mock))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
