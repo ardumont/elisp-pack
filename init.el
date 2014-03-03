@@ -11,7 +11,12 @@
                  goto-last-change
                  ert
                  ert-expectations
-                 el-mock))
+                 el-mock
+                 smartscan))
+
+(require 'smartscan)
+
+(add-hook 'emacs-lisp-mode-hook (lambda () (smartscan-mode)))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
