@@ -16,7 +16,17 @@
 
 (require 'smartscan)
 
-(add-hook 'emacs-lisp-mode-hook (lambda () (smartscan-mode)))
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c m s") 'eval-and-replace)
+            (local-set-key (kbd "C-c m b") 'eval-buffer)
+            (local-set-key (kbd "C-c m e") 'eval-last-sexp)
+            (local-set-key (kbd "C-c m i") 'eval-expression)
+            (local-set-key (kbd "C-c m d") 'eval-defun)
+            (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)
+            (local-set-key (kbd "C-c m r") 'eval-region)
+
+            (smartscan-mode)))
 
 (add-hook 'ielm-mode-hook 'paredit-mode)
 
@@ -54,14 +64,5 @@
 
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
 (define-key global-map (kbd "C-x C-\\") 'goto-last-change)
-
-;; emacs-lisp shortcuts
-(global-set-key (kbd "C-c m s") 'eval-and-replace) ;swap
-(global-set-key (kbd "C-c m b") 'eval-buffer)
-(global-set-key (kbd "C-c m e") 'eval-last-sexp)
-(global-set-key (kbd "C-c m i") 'eval-expression)
-(global-set-key (kbd "C-c m d") 'eval-defun)
-(global-set-key (kbd "C-c m n") 'eval-print-last-sexp)
-(global-set-key (kbd "C-c m r") 'eval-region)
 
 ;;; elisp-pack.el ends here
