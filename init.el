@@ -12,7 +12,8 @@
                  ert
                  ert-expectations
                  el-mock
-                 smartscan))
+                 smartscan
+                 emr))
 
 (require 'smartscan)
 
@@ -50,5 +51,9 @@
 
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
 (define-key global-map (kbd "C-x C-\\") 'goto-last-change)
+
+(autoload 'emr-show-refactor-menu "emr")
+(define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+(add-hook 'prog-mode-hook 'emr-initialize)
 
 ;;; elisp-pack.el ends here
