@@ -42,12 +42,16 @@
 (add-to-list 'auto-mode-alist '("\\.feature$" . perl-mode))
 
 ;; Try and look for the electric highlight
-(defun copy-form ()
-  "To copy a form inside the kill ring."
-  (interactive)
-  (kill-sexp)
-  (undo)
-  (message "Form in kill-ring! "))
+(defun copy-sexp (&optional arg)
+  "Kill the sexp (balanced expression) following point.
+With ARG, kill that many sexps after point.
+Negative arg -N means kill N sexps before point.
+This command assumes point is not in a string or comment."
+  (interactive "p")
+  (save-excursion
+    (let ((opoint (point)))
+      (forward-sexp (or arg 1))
+      (copy-region-as-kill opoint (point)))))
 
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
 (define-key global-map (kbd "C-x C-\\") 'goto-last-change)
