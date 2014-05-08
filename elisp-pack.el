@@ -4,6 +4,7 @@
 
 ;;; Code:
 
+(require 'install-packages-pack)
 (install-packs '(cl-lib
                  dash
                  package-store
@@ -60,4 +61,5 @@ This command assumes point is not in a string or comment."
 (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
 (add-hook 'prog-mode-hook 'emr-initialize)
 
+(provide 'elisp-pack)
 ;;; elisp-pack.el ends here
