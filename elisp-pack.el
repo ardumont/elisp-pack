@@ -7,7 +7,6 @@
 (require 'install-packages-pack)
 (install-packs '(cl-lib
                  dash
-                 package-store
                  page-break-lines
                  goto-last-change
                  ert
