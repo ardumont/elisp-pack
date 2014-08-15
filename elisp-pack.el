@@ -13,7 +13,8 @@
                  ert-expectations
                  el-mock
                  smartscan
-                 emr))
+                 emr
+                 repl-toggle))
 
 (require 'smartscan)
 
@@ -59,6 +60,9 @@ This command assumes point is not in a string or comment."
 (autoload 'emr-show-refactor-menu "emr")
 (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
 (add-hook 'prog-mode-hook 'emr-initialize)
+
+(require 'repl-toggle)
+(add-to-list 'rtog/mode-repl-alist '(emacs-lisp-mode . ielm))
 
 (provide 'elisp-pack)
 ;;; elisp-pack.el ends here
