@@ -14,7 +14,11 @@
                  el-mock
                  smartscan
                  emr
-                 repl-toggle))
+                 repl-toggle
+                 aggressive-indent))
+
+(require 'aggressive-indent)
+(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
 (require 'smartscan)
 
