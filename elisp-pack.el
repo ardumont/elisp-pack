@@ -5,17 +5,17 @@
 ;;; Code:
 
 (require 'install-packages-pack)
-(install-packs '(cl-lib
-                 dash
-                 page-break-lines
-                 goto-last-change
-                 ert
-                 ert-expectations
-                 el-mock
-                 smartscan
-                 emr
-                 repl-toggle
-                 aggressive-indent))
+(install-packages-pack/install-packs '(cl-lib
+                                       dash
+                                       page-break-lines
+                                       goto-last-change
+                                       ert
+                                       ert-expectations
+                                       el-mock
+                                       smartscan
+                                       emr
+                                       repl-toggle
+                                       aggressive-indent))
 
 (require 'aggressive-indent)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
