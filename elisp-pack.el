@@ -17,6 +17,9 @@
                                        repl-toggle
                                        aggressive-indent))
 
+(require 'autoinsert)
+(auto-insert-mode 1)
+
 (require 'aggressive-indent)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
