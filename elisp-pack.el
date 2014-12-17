@@ -71,5 +71,13 @@ This command assumes point is not in a string or comment."
 (require 'repl-toggle)
 (add-to-list 'rtog/mode-repl-alist '(emacs-lisp-mode . ielm))
 
+(defun trace-functions (fns)
+  "Trace functions FNS."
+  (mapc 'trace-function fns))
+
+(defun untrace-functions (fns)
+  "Trace functions FNS."
+  (mapc 'untrace-function fns))
+
 (provide 'elisp-pack)
 ;;; elisp-pack.el ends here
