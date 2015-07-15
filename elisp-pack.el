@@ -17,6 +17,8 @@
                                        repl-toggle
                                        aggressive-indent))
 
+(use-package overseer)
+
 (require 'autoinsert)
 (auto-insert-mode 1)
 
