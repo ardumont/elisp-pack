@@ -19,37 +19,40 @@
 
 (use-package overseer)
 
-(require 'autoinsert)
-(auto-insert-mode 1)
+(use-package autoinsert
+  :config (auto-insert-mode 1))
 
-(require 'aggressive-indent)
-(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(use-package aggressive-indent
+  :config (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode))
 
-(require 'smartscan)
+(use-package smartscan)
+(use-package lisp-mode
+  :config
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c m s") 'eval-and-replace)
+              (local-set-key (kbd "C-c m b") 'eval-buffer)
+              (local-set-key (kbd "C-c m e") 'eval-last-sexp)
+              (local-set-key (kbd "C-c m i") 'eval-expression)
+              (local-set-key (kbd "C-c m d") 'eval-defun)
+              (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)
+              (local-set-key (kbd "C-c m r") 'eval-region)))
+  (add-hook 'emacs-lisp-mode-hook 'smartscan-mode)
+  (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm))
 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c m s") 'eval-and-replace)
-            (local-set-key (kbd "C-c m b") 'eval-buffer)
-            (local-set-key (kbd "C-c m e") 'eval-last-sexp)
-            (local-set-key (kbd "C-c m i") 'eval-expression)
-            (local-set-key (kbd "C-c m d") 'eval-defun)
-            (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)
-            (local-set-key (kbd "C-c m r") 'eval-region)
-
-            (smartscan-mode)))
-
-(add-hook 'ielm-mode-hook 'paredit-mode)
+(use-package ielm
+  :config (add-hook 'ielm-mode-hook 'paredit-mode))
 
 ;; to display a beautiful line instead of the ugly ^L
-(require 'page-break-lines)
-;; activate the reading of line instead of ^L
-(global-page-break-lines-mode t)
+(use-package page-break-lines
+  :config
+  ;; activate the reading of line instead of ^L
+  (global-page-break-lines-mode t))
 
-(require 'dash)
-
-(add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.feature$" . perl-mode))
+(use-package files
+  :config
+  (add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
+  (add-to-list 'auto-mode-alist '("\\.feature$" . perl-mode)))
 
 ;; Try and look for the electric highlight
 (defun copy-sexp (&optional arg)
@@ -63,15 +66,18 @@ This command assumes point is not in a string or comment."
       (forward-sexp (or arg 1))
       (copy-region-as-kill opoint (point)))))
 
-(define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
-(define-key global-map (kbd "C-x C-\\") 'goto-last-change)
+(use-package emr
+  :config
+  (autoload 'emr-show-refactor-menu "emr"))
 
-(autoload 'emr-show-refactor-menu "emr")
-(define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
-(add-hook 'prog-mode-hook 'emr-initialize)
+(use-package prog-mode
+  :config
+  (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+  (add-hook 'prog-mode-hook 'emr-initialize))
 
-(require 'repl-toggle)
-(add-to-list 'rtog/mode-repl-alist '(emacs-lisp-mode . ielm))
+(use-package repl-toggle
+  :config
+  (add-to-list 'rtog/mode-repl-alist '(emacs-lisp-mode . ielm)))
 
 (defun trace-functions (fns)
   "Trace functions FNS."
