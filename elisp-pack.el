@@ -4,19 +4,15 @@
 
 ;;; Code:
 
-(require 'install-packages-pack)
-(install-packages-pack/install-packs '(cl-lib
-                                       dash
-                                       page-break-lines
-                                       goto-last-change
-                                       ert
-                                       ert-expectations
-                                       el-mock
-                                       smartscan
-                                       emr
-                                       repl-toggle
-                                       aggressive-indent))
-
+(use-package bug-hunter)
+(use-package ert)
+(use-package ert-expectations)
+(use-package el-mock)
+(use-package goto-last-change)
+(use-package cl-lib)
+(use-package dash)
+(use-package dash-functional)
+(use-package bug-hunter)
 (use-package overseer)
 
 (use-package autoinsert
