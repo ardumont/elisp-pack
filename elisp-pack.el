@@ -22,6 +22,8 @@
   :config (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode))
 
 (use-package smartscan)
+(use-package overseer)
+
 (use-package lisp-mode
   :config
   (add-hook 'emacs-lisp-mode-hook
@@ -34,6 +36,7 @@
               (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)
               (local-set-key (kbd "C-c m r") 'eval-region)))
   (add-hook 'emacs-lisp-mode-hook 'smartscan-mode)
+  (add-hook 'emacs-lisp-mode-hook 'overseer-mode)
   (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm))
 
 (use-package ielm
