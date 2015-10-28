@@ -74,10 +74,6 @@ This command assumes point is not in a string or comment."
   (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
   (add-hook 'prog-mode-hook 'emr-initialize))
 
-(use-package repl-toggle
-  :config
-  (add-to-list 'rtog/mode-repl-alist '(emacs-lisp-mode . ielm)))
-
 (defun trace-functions (fns)
   "Trace functions FNS."
   (mapc 'trace-function fns))
