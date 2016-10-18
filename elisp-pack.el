@@ -12,8 +12,6 @@
 (use-package cl-lib)
 (use-package dash)
 (use-package dash-functional)
-(use-package bug-hunter)
-(use-package overseer)
 
 (use-package autoinsert
   :config (auto-insert-mode 1))
