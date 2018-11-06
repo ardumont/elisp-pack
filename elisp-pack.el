@@ -5,8 +5,6 @@
 ;;; Code:
 
 (require 'bug-hunter)
-(require 'ert)
-(require 'ert-expectations)
 (require 'el-mock)
 (require 'goto-last-change)
 (require 'cl-lib)
