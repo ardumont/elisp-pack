@@ -21,17 +21,20 @@
 (require 'overseer)
 
 (require 'lisp-mode)
+
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
-	    (local-set-key (kbd "C-c m s") 'eval-and-replace)
 	    (local-set-key (kbd "C-c m b") 'eval-buffer)
 	    (local-set-key (kbd "C-c m e") 'eval-last-sexp)
 	    (local-set-key (kbd "C-c m i") 'eval-expression)
 	    (local-set-key (kbd "C-c m d") 'eval-defun)
-	    (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)
-	    (local-set-key (kbd "C-c m r") 'eval-region)))
+	    (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)))
+
 (add-hook 'emacs-lisp-mode-hook 'smartscan-mode)
 (add-hook 'emacs-lisp-mode-hook 'overseer-mode)
+(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+(add-hook 'after-save-hook 'check-parens nil t)
+
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
 
 (require 'ielm)
