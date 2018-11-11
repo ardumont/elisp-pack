@@ -29,7 +29,7 @@
 	    (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)))
 
 (add-hook 'emacs-lisp-mode-hook 'overseer-mode)
-(define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
+(define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm)
 
 (require 'ielm)
 (add-hook 'ielm-mode-hook 'paredit-mode)
@@ -57,10 +57,8 @@ This command assumes point is not in a string or comment."
 
 (require 'emr)
 (autoload 'emr-show-refactor-menu "emr")
-
-(require 'prog-mode)
-(define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
-(add-hook 'prog-mode-hook 'emr-initialize)
+(define-key emacs-lisp-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+(add-hook 'emacs-lisp-mode-hook 'emr-initialize)
 
 (defun trace-functions (fns)
   "Trace functions FNS."
