@@ -27,9 +27,7 @@
 	    (local-set-key (kbd "C-c m i") 'eval-expression)
 	    (local-set-key (kbd "C-c m d") 'eval-defun)
 	    (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)))
-
 (add-hook 'emacs-lisp-mode-hook 'overseer-mode)
-(define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm)
 
 (require 'ielm)
 (add-hook 'ielm-mode-hook 'paredit-mode)
@@ -57,8 +55,10 @@ This command assumes point is not in a string or comment."
 
 (require 'emr)
 (autoload 'emr-show-refactor-menu "emr")
-(define-key emacs-lisp-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
 (add-hook 'emacs-lisp-mode-hook 'emr-initialize)
+
+(define-key emacs-lisp-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+(define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm)
 
 (defun trace-functions (fns)
   "Trace functions FNS."
