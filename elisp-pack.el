@@ -17,11 +17,9 @@
 (require 'aggressive-indent)
 (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 
-(require 'smartscan)
 (require 'overseer)
 
 (require 'lisp-mode)
-
 (add-hook 'emacs-lisp-mode-hook
 	  (lambda ()
 	    (local-set-key (kbd "C-c m b") 'eval-buffer)
@@ -30,7 +28,6 @@
 	    (local-set-key (kbd "C-c m d") 'eval-defun)
 	    (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)))
 
-(add-hook 'emacs-lisp-mode-hook 'smartscan-mode)
 (add-hook 'emacs-lisp-mode-hook 'overseer-mode)
 (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
 (add-hook 'after-save-hook 'check-parens nil t)
