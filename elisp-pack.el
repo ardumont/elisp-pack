@@ -29,9 +29,6 @@
 	    (local-set-key (kbd "C-c m n") 'eval-print-last-sexp)))
 
 (add-hook 'emacs-lisp-mode-hook 'overseer-mode)
-(add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-(add-hook 'after-save-hook 'check-parens nil t)
-
 (define-key lisp-mode-shared-map (kbd "C-c C-z") 'ielm)
 
 (require 'ielm)
